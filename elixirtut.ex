@@ -146,15 +146,53 @@ defmodule M do
 
     # my_stats = [name: "Tyler", height: 6.25]
 
-    def do_stuff do
-      capitals
-    end
+
+    # capitals = %{"Alabama" => "Montgomery",
+    # "Alaska" => "Juneau", "Arazona" => "Phoenix"}
+
+    # IO.puts "Capital of Alaska is #{capitals["Alaska"]}"
+
+    # capitals2 = %{alabama: "Montgomery",
+    # alaska: "Juneau", arizona: "Phoenix"}
+
+    # IO.puts "Capital of Arizona is #{capitals2.arizona}"
+
+    # capitals3 = Dict.put_new(capitals, "Arkansas", "Little Rock")
 
 
+    # [length, width] = [20, 30]
+    # IO.puts "Width : #{width}"
+
+    # [_, [_, a]] = [20, [30, 40]]
+
+    # IO.puts "Get Num : #{a}"
 
 
+    # get_sum = fn (x, y) -> x + y end
+
+    # IO.puts "5 + 5 = #{get_sum.(5,5)}"
+
+    # get_less = &(&1 - &2)
+
+    # IO.puts "7 - 6 = #{get_less.(7,6)}"
+
+    # add_sum = fn
+    #   {x, y} -> IO.puts "#{x} + #{y} = #{x+y}"
+    #   {x, y, z} -> IO.puts "#{x} + #{y} + #{z} = #{x+y+z}"
+    # end
+
+    # add_sum.({1,2})
+    # add_sum.({1,2,3})
+
+    # IO.puts do_it()
 
 
+    # IO.puts "Factorial of 4 : #{factorial(4)}"
+
+
+    # IO.puts "Sum : #{sum([1,2,3])}"
+
+    # loop(5,1)
 
 
 
@@ -164,19 +202,39 @@ defmodule M do
 
   end
 
-  # def display_list([word | words]) do
-  #   IO.puts word
-  #   display_list(words)
-  # end
-  # def display_list([]), do: nil
+  def display_list([word | words]) do
+    IO.puts word
+    display_list(words)
+  end
+  def display_list([]), do: nil
 
+  def do_it(x \\ 1, y \\ 1) do
+    x + y
+  end
 
+  def factorial(num) do
+    if num <= 1 do
+    1
+    else
+      result = num * factorial(num - 1)
+      result
+    end
+  end
 
+  def sum([]), do: 0
 
+  def sum([h|t]), do: h + sum(t)
 
+  def loop(0, _), do: nil
 
-
-
+  def loop(max, min) do
+    if max < min do
+      loop(0, min)
+    else
+      IO.puts "Num : #{max}"
+      loop(max - 1, min)
+    end
+  end
 
 
   # def data_stuff() do
