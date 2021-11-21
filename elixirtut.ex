@@ -195,9 +195,53 @@ defmodule M do
     # loop(5,1)
 
 
+    # IO.puts "All Even Values In List : #{Enum.all?([1,2,3],
+    # fn(n) -> rem(n, 2) == 0 end)}"
+
+    # IO.puts "Any Even Values In List : #{Enum.any?([1,2,3],
+    # fn(n) -> rem(n, 2) == 0 end)}"
+
+    # Enum.each([1,2,3], fn(n) -> IO.puts n end)
+
+    # dbl_list = Enum.map([1,2,3], fn(n) -> n * 2 end)
+    # IO.inspect dbl_list, charlists: :as_lists
+
+    # sum_vals = Enum.reduce([1,2,3], fn(n, sum) -> n + sum end)
+    # IO.puts "Sum : #{sum_vals}"
+
+    # IO.inspect Enum.uniq([1,2,2])
 
 
+    # dbl_list = for n <- [1,2,3], do: n * 2
+    # IO.inspect dbl_list
 
+    # even_list = for n <- [1,2,3,4], rem(n,2) == 0, do: n
+    # IO.inspect even_list
+
+
+    # err = try do
+    #   5 / 0
+
+    # rescue
+    #   ArithmeticError -> "Can't Divide by Zero"
+    # end
+
+    # IO.puts err
+
+
+    spawn(fn () -> loop(50, 1) end)
+    spawn(fn () -> loop(100, 50) end)
+
+    send(self(), {:french, "Bob"})
+
+    receive do
+      {:german, name} -> IO.puts "Guten tag #{name}"
+      {:french, name} -> IO.puts "Bonjour #{name}"
+      {:english, name} -> IO.puts "Hello #{name}"
+
+    after
+      500 -> IO.puts "Time up"
+    end
 
 
   end
